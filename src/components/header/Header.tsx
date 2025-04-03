@@ -5,14 +5,13 @@ export function Header() {
 
   return (
     <>
-    <header className={styles.header}>
-        <img src={logo} alt='logotipo'></img>
-        <div className={styles.titulo}>
-            <div className={styles.to}>to</div>
-            <div className={styles.do}>do</div>
-        </div>
-
-    </header>
+        <header className={styles.header}>
+            <img src={logo} alt='Logotipo da aplicação'></img>
+            <h1 className={styles.titulo}>
+                <span className={styles.to}>to</span>
+                <span className={styles.do}>do</span>
+            </h1>
+        </header>
     </>
   )
 }
