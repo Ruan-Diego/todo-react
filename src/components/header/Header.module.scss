@@ -1,0 +1,29 @@
+.header{
+    background-color: var(--gray-700);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    height: 12.5rem;
+}
+
+.titulo{
+    color: var(--white);
+    font-weight: 900;
+    display: flex;
+
+}
+.to{
+    color: var(--blue);
+    font-size: 3rem;
+}
+.do{
+    color: var(--purple);
+    font-size: 3rem;
+}
+
+
+.header img{
+    height: 3rem;
+    
+}
