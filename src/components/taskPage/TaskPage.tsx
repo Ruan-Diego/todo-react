@@ -26,7 +26,7 @@ export function TaskPage({ tasks, allTasks, onToggleChecked, onDeleteTask, onFil
             <section className={styles.section}>
                 <Tooltip position="top-start" color='#5E60CE' label="Show all my tasks">
                     <div className={styles.badgeOne}>
-                        <span className={styles.textDecoration} onClick={() => onFilterTask(false)}>Your Created Tasks</span>
+                        <span className={styles.textDecoration} onClick={() => onFilterTask(false)}>Created Tasks</span>
                         <Badge color="gray">{allTasks.length}</Badge>
                     </div>
                 </Tooltip>
@@ -37,24 +37,20 @@ export function TaskPage({ tasks, allTasks, onToggleChecked, onDeleteTask, onFil
                         <Badge color="gray">{tarefasConcluídas.length} de {tasks.length}</Badge>
                     </div>
                 </Tooltip>
-
-
             </section>
 
-            
-
-          {tasks.length > 0 ? (
-            tasks.map((task) => (
-              <Task
-                key={task.id}
-                data={task}
-                onToggleChecked={onToggleChecked}
-                onDeleteTask={onDeleteTask}
-              />
-            ))
-          ) : (
-            <div><Empty/></div>
-          )}
+            {tasks.length > 0 ? (
+                tasks.map((task) => (
+                <Task
+                    key={task.id}
+                    data={task}
+                    onToggleChecked={onToggleChecked}
+                    onDeleteTask={onDeleteTask}
+                />
+                ))
+            ) : (
+                <div><Empty/></div>
+            )}
         </main>
       </div>
     );

@@ -4,13 +4,11 @@ import styles from './Button.module.scss'
 export function Button() {
 
   return (
-    <>
-        <button className={styles.button}>
-            <span>
-                Criar
-            </span>
-            <PlusCircle size={18} />
-        </button>
-    </>
+    <button className={styles.button}>
+        <span>
+            Add
+        </span>
+        <PlusCircle size={18} />
+    </button>
   )
 }
