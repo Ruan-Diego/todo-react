@@ -61,9 +61,7 @@ function App() {
   return (
     <main>
       <Header/>
-      <div className={styles.input}>
         <Input onCreateTask={handleCreateTask} />
-      </div>
 
       <TaskPage 
         tasks={tasks} 

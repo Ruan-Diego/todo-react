@@ -1,5 +1,7 @@
 .taskPage{
+    width: 100%;
     margin-top: 5.7rem;
+    margin-bottom: 4rem;
     display: flex;
     justify-content: center;
 }
@@ -9,13 +11,16 @@
     justify-content: center;
     flex-direction: column;
     gap: 0.8rem;   
-    width: 46.25rem;
+    width: 100%;
+    max-width: 55rem;
+    margin: 0 4rem;
 }
 
 .section{
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.8rem;
+    width: 100%;
 
     .badgeOne{
         color: var(--blue);
@@ -36,5 +41,13 @@
         display: flex;
         gap: 0.5rem;
         align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .badgeOne, .badgeTwo{
+        flex-direction: column;
+        justify-content: left;
+        align-items: flex-start !important;
     }
 }

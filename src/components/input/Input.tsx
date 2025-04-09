@@ -20,20 +20,23 @@ export function Input({onCreateTask}: InputProps) {
   });
 
   return (    
-    <form style={{ width: '100%' }} onSubmit={form.onSubmit((value) => onCreateTask(value.content))}>
-      <main className={styles.form}>
-        <TextInput
-          radius="md"
-          classNames={{
-            input: styles.input
-          }}
-          withAsterisk
-          placeholder="Add a new task"
-          key={form.key('content')}
-          {...form.getInputProps('content')}
-        />
-        <Button />
-      </main> 
-    </form>
+    <main className={styles.main}>
+      <form className={styles.form} onSubmit={form.onSubmit((value) => onCreateTask(value.content))}>
+        <div className={styles.content}>
+          <TextInput
+            radius="md"
+            classNames={{
+              input: styles.input,
+              root: styles.inputRoot
+            }}
+            placeholder="Add a new task"
+            key={form.key('content')}
+            {...form.getInputProps('content')}
+          />
+          <Button />
+        </div> 
+      </form>
+    </main>
+    
   )
 }
