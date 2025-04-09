@@ -15,7 +15,7 @@ export function Input({onCreateTask}: InputProps) {
       content: '',
     },
     validate: {
-      content: (value) => (value.length <= 0  ? 'Preencha o campo antes de adicionar uma tarefa' : null),
+      content: (value) => (value.length <= 0  ? 'You must fill in the field before adding a task.' : null),
     },
   });
 
@@ -28,8 +28,7 @@ export function Input({onCreateTask}: InputProps) {
             input: styles.input
           }}
           withAsterisk
-          //label="Tarefa"
-          placeholder="Adicione uma nova tarefa"
+          placeholder="Add a new task"
           key={form.key('content')}
           {...form.getInputProps('content')}
         />

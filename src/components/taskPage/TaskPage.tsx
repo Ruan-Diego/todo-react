@@ -1,4 +1,4 @@
-import { Badge } from '@mantine/core';
+import { Badge, Tooltip } from '@mantine/core';
 import { TaskModel } from '../../models/Task';
 import { Empty } from '../empty/Empty';
 import { Task } from '../task/Task';
@@ -24,16 +24,20 @@ export function TaskPage({ tasks, allTasks, onToggleChecked, onDeleteTask, onFil
         <main className={styles.main}>
 
             <section className={styles.section}>
-  
-                <div className={styles.badgeOne}>
-                    <span className={styles.textDecoration} onClick={() => onFilterTask(false)}>Tarefas criadas</span>
-                    <Badge color="gray">{allTasks.length}</Badge>
-                </div>
+                <Tooltip position="top-start" color='#5E60CE' label="Show all my tasks">
+                    <div className={styles.badgeOne}>
+                        <span className={styles.textDecoration} onClick={() => onFilterTask(false)}>Your Created Tasks</span>
+                        <Badge color="gray">{allTasks.length}</Badge>
+                    </div>
+                </Tooltip>
 
-                <div className={styles.badgeTwo}>
-                    <span className={styles.textDecoration} onClick={() => onFilterTask(true)}>Concluídas</span>
-                    <Badge color="gray">{tarefasConcluídas.length} de {tasks.length}</Badge>
-                </div>
+                <Tooltip position="top-start" color='#5E60CE' label="Show only my completed tasks">
+                    <div className={styles.badgeTwo}>
+                        <span className={styles.textDecoration} onClick={() => onFilterTask(true)}>Completed tasks</span>
+                        <Badge color="gray">{tarefasConcluídas.length} de {tasks.length}</Badge>
+                    </div>
+                </Tooltip>
+
 
             </section>
 
