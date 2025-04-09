@@ -5,6 +5,10 @@
     align-items: center;
     gap: 0.8rem;
     height: 12.5rem;
+
+    ListChecks{
+        padding: 32px;
+    }
 }
 
 .titulo{
@@ -23,7 +27,7 @@
 }
 
 
-.header img{
-    height: 3rem;
+.header span{
+    font-size: 3rem;
     
 }

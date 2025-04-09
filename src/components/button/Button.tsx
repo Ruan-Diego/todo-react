@@ -1,3 +1,4 @@
+import { PlusCircle } from '@phosphor-icons/react'
 import styles from './Button.module.scss'
 
 export function Button() {
@@ -8,9 +9,7 @@ export function Button() {
             <span>
                 Criar
             </span>
-            <span className="material-symbols-outlined">
-                add_circle
-            </span>
+            <PlusCircle size={18} />
         </button>
     </>
   )

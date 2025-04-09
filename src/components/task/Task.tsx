@@ -1,41 +1,52 @@
 
-// interface TaskPageProps {
-// }
+import { ActionIcon, Checkbox } from '@mantine/core';
+import { Trash } from '@phosphor-icons/react';
+import { TaskModel } from "../../models/Task";
+import styles from "./Task.module.scss";
 
-// const tasks = [
-//     {
-//         id: 1,
-//         content: 'Isso é uma TASK',
-//         isChecked: false
-//     },
-//     {
-//         id: 2,
-//         content: 'Isso é uma TASK 2',
-//         isChecked: true
-//     },
-//     {
-//         id: 3,
-//         content: 'Isso é uma TASK 3',
-//         isChecked: false
-//     },
-//     {
-//         id: 4,
-//         content: 'Isso é uma TASK 4',
-//         isChecked: false
-//     },
-// ]
-interface propsTask{
-    id?: number,
-    content: string,
-    isChecked?: boolean
+interface TaskProps {
+  data: TaskModel;
+  onToggleChecked: (id: number) => void;
+  onDeleteTask: (id:number) => void;
 }
-export function Task(props: propsTask) {
+
+
+export function Task({ data, onToggleChecked, onDeleteTask }: TaskProps) {
 
   return (
     <main>
-        <span>
-            {props.content}
+        <span className={styles.card}>
+          <Checkbox
+            onClick={() => onToggleChecked(data.id)}
+            color="#5E60CE"
+            radius="lg"
+            size="sm"
+            checked={data.isChecked}
+            classNames={{
+              input: styles.checkboxInput,
+            }}
+            readOnly
+          />
+          <div className={`${styles.content} ${data.isChecked ? styles.checked : ''}`}>
+            {data.content}
+          </div>
+
+          <ActionIcon 
+            variant="subtle" 
+            color='gray' 
+            size="md" 
+            radius="md" 
+            aria-label="Settings"
+            classNames={{
+              root: styles.iconButton,
+            }}  
+            onClick={() => onDeleteTask(data.id)}
+          >
+
+            <Trash  size={16}  />
+          </ActionIcon>
         </span>
     </main>
   )
 }
+
