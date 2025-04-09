@@ -1,22 +1,22 @@
 [
     {
         "id": 1,
-        "content": "Isso é uma TASK feita pelo mock e ela precisa ser removidaIsso é uma TASK feita pelo mock e ela precisa ser removida",
+        "content": "Drink water",
         "isChecked": false
     },
     {
         "id": 2,
-        "content": "Isso é uma TASK 2",
+        "content": "Clean my bedroom",
         "isChecked": true
     },
     {
         "id": 3,
-        "content": "Isso é uma TASK 3",
+        "content": "wash the dishes",
         "isChecked": false
     },
     {
         "id": 4,
-        "content": "Isso é uma TASK 4",
+        "content": "Go out with my friends",
         "isChecked": false
     }
 ]
