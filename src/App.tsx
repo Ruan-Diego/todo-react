@@ -1,34 +1,95 @@
+import { Alert } from '@mantine/core'
+import '@mantine/core/styles.css'
+import { WarningCircle } from '@phosphor-icons/react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from './App.module.scss'
+import { Header } from './components/header/Header'
+import { Input } from './components/input/Input'
+import { TaskPage } from './components/taskPage/TaskPage'
+import tasksMock from './mockData/tasksMock.json'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [allTasks, setAllTasks] = useState(tasksMock);
+  const [isFilterActive, setIsFilterActive] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  
+  const tasks = isFilterActive
+  ? allTasks.filter(task => task.isChecked)
+  : allTasks;
+
+  const icon = <WarningCircle  />;
+
+
+  function handleCreateTask(content: string): void {
+    const lastId = allTasks.length > 0 ? allTasks[allTasks.length - 1].id : 0;
+    const newTask = {
+      id: lastId + 1,
+      content,
+      isChecked: false,
+    };
+    setAllTasks(prev => [...prev, newTask]);
+  }
+  
+  function handleToggleChecked(id: number) {
+    setAllTasks(prev =>
+      prev.map(task =>
+        task.id === id ? { ...task, isChecked: !task.isChecked } : task
+      )
+    );
+  }
+  
+  function handleDeleteTask(id: number): void {
+    setAllTasks(prev => prev.filter(task => task.id !== id));
+  }
+  
+    function handleFilterTasks(isFilter: boolean) {
+      const hasCompleted = allTasks.some(task => task.isChecked);
+    
+      if (hasCompleted || !isFilter) {
+        setIsFilterActive(isFilter);
+      } else {
+        setShowAlert(true);
+        setTimeout(() => setShowAlert(false), 3000);
+
+      }
+    }
+    
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main>
+      <Header/>
+      <div className={styles.input}>
+        <Input onCreateTask={handleCreateTask} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <TaskPage 
+        tasks={tasks} 
+        allTasks={allTasks}
+        onFilterTask={handleFilterTasks}
+        onDeleteTask={handleDeleteTask} 
+        onToggleChecked={handleToggleChecked} 
+      />
+
+    {showAlert && (
+      <div className={styles.alert}>
+        <Alert
+          variant="filled"
+          color="#5E60CE"
+          radius="md"
+          withCloseButton
+          title="Calma aí!"
+          icon={icon}
+          onClose={() => setShowAlert(false)}
+        >
+          Você não tem nenhuma tarefa concluída
+        </Alert>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+    )}
+    </main>
   )
 }
 

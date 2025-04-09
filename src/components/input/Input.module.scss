@@ -1,0 +1,29 @@
+.input{
+    background-color: var(--gray-500);
+    color: var(--gray-100);
+    height: 3.5rem;
+    width: 40rem;
+    border-radius: 8px;
+    box-shadow: none;
+    padding-left: 1rem;
+    border: 2px var(--gray-500) solid;
+
+    &:hover{
+        border-color: var(--purple-dark);
+
+    }
+
+    &:focus-visible, &:focus{
+        border-color: var(--purple);
+        outline: none;
+    }
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 10.7rem;
+}

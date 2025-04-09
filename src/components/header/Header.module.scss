@@ -1,0 +1,33 @@
+.header{
+    background-color: var(--gray-700);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    height: 12.5rem;
+
+    ListChecks{
+        padding: 32px;
+    }
+}
+
+.titulo{
+    color: var(--gray-100);
+    font-weight: 900;
+    display: flex;
+
+}
+.to{
+    color: var(--blue);
+    font-size: 3rem;
+}
+.do{
+    color: var(--purple);
+    font-size: 3rem;
+}
+
+
+.header span{
+    font-size: 3rem;
+    
+}

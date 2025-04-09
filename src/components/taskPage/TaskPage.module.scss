@@ -1,0 +1,40 @@
+.taskPage{
+    margin-top: 5.7rem;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;   
+    width: 46.25rem;
+}
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+
+    .badgeOne{
+        color: var(--blue);
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .textDecoration{
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    .badgeTwo{
+        color: var(--purple);
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+}
