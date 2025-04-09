@@ -80,11 +80,11 @@ function App() {
           color="#5E60CE"
           radius="md"
           withCloseButton
-          title="Calma aí!"
+          title="Hold on!"
           icon={icon}
           onClose={() => setShowAlert(false)}
         >
-          Você não tem nenhuma tarefa concluída
+          You haven't completed any tasks yet.
         </Alert>
       </div>
 

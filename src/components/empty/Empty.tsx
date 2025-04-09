@@ -7,8 +7,8 @@ export function Empty() {
     <div>
         <main className={styles.main}>
             <ClipboardText  size={48} weight="thin" color='#333333' />
-            <span className={styles.fraseUm}>Você ainda não tem tarefas cadastradas</span>
-            <span className={styles.fraseDois}>Crie tarefas e organize seus itens a fazer</span>
+            <span className={styles.fraseUm}>You haven't added any tasks yet.</span>
+            <span className={styles.fraseDois}>Create and organize your tasks.</span>
         </main>
     </div>
 
